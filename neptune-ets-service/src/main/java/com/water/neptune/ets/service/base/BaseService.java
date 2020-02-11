@@ -1,17 +1,14 @@
-package com.water.neptune.common.service.base;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.support.Property;
-import com.water.neptune.common.dao.plus.mybatis.model.PageParam;
-import com.water.neptune.common.dao.plus.mybatis.model.PageResult;
-import org.springframework.beans.factory.annotation.Autowired;
+package com.water.neptune.ets.service.base;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.toolkit.support.Property;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.water.neptune.common.core.exception.ServiceException;
-import com.water.neptune.common.core.redis.RedisCacheManager;
-import com.water.neptune.common.enums.CodeStatusEnum;
+import com.water.neptune.ets.common.dao.plus.mybatis.model.PageParam;
+import com.water.neptune.ets.common.dao.plus.mybatis.model.PageResult;
+import com.water.neptune.ets.common.enums.CodeStatusEnum;
+import com.water.neptune.ets.common.exception.ServiceException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,8 +21,6 @@ import java.util.function.Function;
  */
 public class BaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> {
 
-	@Autowired
-	protected RedisCacheManager redisCacheManager;
 
 	/**
 	 * 删除数据
@@ -63,7 +58,7 @@ public class BaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> {
      * @return
      */
     public <R> PageResult<R> pageByList(int page, int pageSize, Object condition,
-                                        Function<Map<String, Object>, PageResult<R>> function) {
+										Function<Map<String, Object>, PageResult<R>> function) {
         Map<String, Object> queryCondition = getQueryCondition(page, pageSize, condition);
         return function.apply(queryCondition);
     }

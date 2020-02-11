@@ -1,4 +1,4 @@
-package com.buhuo.newretail.shop.service.config;
+package com.water.neptune.ets.api.config;
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author BH-JiLin
- * @description 描述此类
- * Date: 2018/11/9
- * Time: 16:13
+ * @author zhangmiaojie
  */
 @Configuration
 public class MybatisPlusConfig {
@@ -26,6 +23,7 @@ public class MybatisPlusConfig {
 
     /**
      * 乐观锁
+     *
      * @return
      */
     @Bean
@@ -35,13 +33,13 @@ public class MybatisPlusConfig {
 
     /**
      * 逻辑删除
+     *
      * @return
      */
     @Bean
     public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
     }
-
 
 
 }

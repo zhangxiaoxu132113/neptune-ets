@@ -1,88 +1,71 @@
 server:
   port: 8870
+  servlet:
+    context-path: /ets
 spring:
   application:
-    name: neptune-api
-  mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
+    name: neptune-ets-api
   ##################    JDBC 配置    ################
   # 数据库配置
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      # 数据库 1
-      db1:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://47.97.96.155:3306/neptune_wechat_subscription?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-        username: root
-        password: 132113.abc
-        initial-size: 5
-        max-active: 20
-        min-idle: 5
-        max-wait: 60000
-      # 数据库 2
-      db2:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://47.97.96.155:3306/db_book_stack?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-        username: root
-        password: 132113.abc
-        initial-size: 5
-        max-active: 20
-        min-idle: 5
-        max-wait: 60000
-      # 视频系统
-      db3:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://47.97.96.155:3306/neptune_video_mg?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-        username: root
-        password: 132113.abc
-        initial-size: 5
-        max-active: 20
-        min-idle: 5
-        max-wait: 60000
-        # 视频系统
-      db4:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://47.97.96.155:3306/neptune_crawler?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-        username: root
-        password: 132113.abc
-        initial-size: 5
-        max-active: 20
-        min-idle: 5
-        max-wait: 60000
-      #打开PSCache，并且指定每个连接上PSCache的大
-      pool-prepared-statements: true
-      max-pool-prepared-statement-per-connection-size: 20
-      validation-query: SELECT 1
-      validation-query-timeout: 30000
-      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
-      test-on-borrow: true
-      #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
-      test-on-return: false
-      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
-      test-while-idle: true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.97.96.155:3306/ets_video?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 132113.abc
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      db:
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://47.97.96.155:3306/ets_video?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#        username: root
+#        password: 132113.abc
+#        initial-size: 5
+#        max-active: 20
+#        min-idle: 5
+#        max-wait: 60000
+#      #打开PSCache，并且指定每个连接上PSCache的大
+#      pool-prepared-statements: true
+#      max-pool-prepared-statement-per-connection-size: 20
+#      validation-query: SELECT 1
+#      validation-query-timeout: 30000
+#      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+#      test-on-borrow: true
+#      #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+#      test-on-return: false
+#      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+#      test-while-idle: true
   ##################    REDIS 配置    ################
   # 缓存配置
-  redis:
-    database: 1
-    host: 127.0.0.1
-    password: BH123!@#
-    port: 6379
+#  redis:
+#    database: 1
+#    host: 127.0.0.1
+#    password: BH123!@#
+#    port: 6379
 
 #mybatis
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: com.water.neptune.**.model.po*
-  typeEnumsPackage: com.water.neptune.**.model.enums*
+  global-config:
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: input
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: NOT_NULL
+      #驼峰下划线转换
+      column-underline: true
+      #数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      db-type: mysql
 
-dubbo:
-  application:
-    name: neptune-dubbo-application
-  registry:
-    address: zookeeper://118.31.33.195:2181
-  protocol:
-    name: dubbo
-    port: 20882
+    #刷新mapper 调试神器
+    refresh: true
+  # 原生配置
+  config-location: classpath:mybatis-config.xml
+

@@ -1,9 +1,9 @@
-package com.water.neptune.common.dao.plus.annotations;
+package com.water.neptune.ets.common.dao.plus.annotations;
 
 import java.lang.annotation.*;
 
 /**
- * Created by zmj on 2017/11/23.
+ * @author zhangmiaojie
  */
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)

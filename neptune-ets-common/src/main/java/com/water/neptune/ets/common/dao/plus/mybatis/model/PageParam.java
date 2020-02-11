@@ -1,8 +1,8 @@
-package com.water.neptune.common.dao.plus.mybatis.model;
-
-import java.util.Map;
+package com.water.neptune.ets.common.dao.plus.mybatis.model;
 
 import lombok.Data;
+
+import java.util.Map;
 
 /**
  * @author 张淼洁

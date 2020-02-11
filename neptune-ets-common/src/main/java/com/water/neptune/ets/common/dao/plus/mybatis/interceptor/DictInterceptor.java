@@ -1,18 +1,18 @@
-package com.water.neptune.common.dao.plus.mybatis.interceptor;
+package com.water.neptune.ets.common.dao.plus.mybatis.interceptor;
 
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Properties;
-
-import com.water.neptune.common.dao.plus.annotations.DictDesc;
-import com.water.neptune.common.dao.plus.ditc.DictOperater;
-import com.water.neptune.common.dao.plus.mybatis.model.PageResult;
+import com.water.neptune.ets.common.dao.plus.annotations.DictDesc;
+import com.water.neptune.ets.common.dao.plus.ditc.DictOperater;
+import com.water.neptune.ets.common.dao.plus.mybatis.model.PageResult;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
+
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Properties;
 
 
 /**

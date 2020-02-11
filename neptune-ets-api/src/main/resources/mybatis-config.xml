@@ -54,7 +54,7 @@
 
     <!--mybatis拦截器-->
     <plugins>
-        <plugin interceptor="com.water.neptune.common.dao.plus.mybatis.interceptor.PageInterceptor"/>
-        <plugin interceptor="com.water.neptune.common.dao.plus.mybatis.interceptor.DictInterceptor"/>
+        <plugin interceptor="com.water.neptune.ets.common.dao.plus.mybatis.interceptor.PageInterceptor"/>
+        <plugin interceptor="com.water.neptune.ets.common.dao.plus.mybatis.interceptor.DictInterceptor"/>
     </plugins>
 </configuration>

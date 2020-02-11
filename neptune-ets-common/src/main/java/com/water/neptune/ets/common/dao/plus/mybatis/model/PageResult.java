@@ -1,4 +1,4 @@
-package com.water.neptune.common.dao.plus.mybatis.model;
+package com.water.neptune.ets.common.dao.plus.mybatis.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

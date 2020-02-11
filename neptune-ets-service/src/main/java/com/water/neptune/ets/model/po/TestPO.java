@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @ToString
-@TableName("t_account_info")
+@TableName("test")
 public class TestPO implements Serializable {
     private static final long serialVersionUID = 3369139247652969989L;
     private Long id;

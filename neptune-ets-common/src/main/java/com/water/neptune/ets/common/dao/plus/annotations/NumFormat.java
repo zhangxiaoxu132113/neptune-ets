@@ -1,12 +1,9 @@
-package com.water.neptune.common.dao.plus.annotations;
+package com.water.neptune.ets.common.dao.plus.annotations;
 
 import java.lang.annotation.*;
 
 /**
- * @author 张淼洁
- * @description 描述此类
- * Date: 2018/12/21
- * Time: 16:48
+ * @author zhangmiaojie
  */
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

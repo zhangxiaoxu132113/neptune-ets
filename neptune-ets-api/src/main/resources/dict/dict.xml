@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+    <class name="通用分类">
+        <!--是否删除-->
+        <type code="IS_DELETE" name="是否删除">
+            <item code="0" name="否"/>
+            <item code="1" name="是"/>
+        </type>
+        <!--订单状态-->
+        <type code="ORDER_STATUS">
+            <item code="0" name="待付款"/>
+            <item code="1" name="待发货"/>
+            <item code="2" name="已发货"/>
+            <item code="3" name="已完成"/>
+            <item code="4" name="已关闭"/>
+        </type>
+        <!--首页banner图片，链接跳转方式-->
+        <type code="JUMP_METHOD">
+            <item code="0" name="内置浏览器"/>
+            <item code="1" name="外部浏览器"/>
+            <item code="2" name="原生功能"/>
+        </type>
+        <!--好友等级-->
+        <type code="USER_LEVEL">
+            <item code="0" name="股东候选人"/>
+            <item code="1" name="大股东"/>
+            <item code="2" name="初级顾问"/>
+            <item code="3" name="中级顾问"/>
+            <item code="4" name="高级顾问"/>
+            <item code="5" name="小股东"/>
+        </type>
+        <!--好友等级-->
+        <type code="REFUND_STATUS">
+            <item code="0" name="提交申请"/>
+            <item code="1" name="商家拒绝"/>
+            <item code="2" name="商家同意"/>
+            <item code="3" name="买家已寄"/>
+            <item code="4" name="商家拒绝收货"/>
+            <item code="5" name="退款成功"/>
+            <item code="6" name="退款失败"/>
+        </type>
+
+        <!-- video-system -->
+        <!--视频播放状态-->
+        <type code="PLAY_STATUS">
+            <item code="0" name="未审核"/>
+            <item code="1" name="已审核"/>
+            <item code="2" name="已退回"/>
+        </type>
+        <!--视频状态-->
+        <type code="VIDEO_STATUS">
+            <item code="0" name="开始上传"/>
+            <item code="1" name="上传完成"/>
+            <item code="2" name="已经添加转码任务"/>
+            <item code="3" name="全部转码成功"/>
+        </type>
+        <!--任务状态-->
+        <type code="VIDEO_TASK_STATUS">
+            <item code="0" name="未同步"/>
+            <item code="1" name="同步中"/>
+            <item code="2" name="同步完成"/>
+            <item code="3" name="正在转码"/>
+            <item code="4" name="转码完成"/>
+            <item code="5" name="发布中"/>
+            <item code="6" name="发布完成"/>
+            <item code="-1" name="同步失败"/>
+            <item code="-2" name="转码失败"/>
+            <item code="-3" name="发布失败"/>
+            <item code="-4" name="任务挂起"/>
+        </type>
+        <!--清晰度-->
+        <type code="DEFINITION_DESC">
+            <item code="350" name="流畅"/>
+            <item code="1000" name="高清"/>
+            <item code="1300" name="超清"/>
+            <item code="yuanhua" name="原画"/>
+            <item code="source" name="源"/>
+        </type>
+
+        <!--crawler-->
+        <type code="CRAWLER_TASK_TYPE">
+            <item code="0" name="单次"/>
+            <item code="1" name="监控"/>
+        </type>
+        <type code="CRAWLER_TASK_STATUS">
+            <item code="-1" name="异常"/>
+            <item code="0" name="准备执行"/>
+            <item code="1" name="执行中"/>
+            <item code="2" name="完成"/>
+        </type>
+    </class>
+</dictionary>

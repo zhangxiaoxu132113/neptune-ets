@@ -1,0 +1,88 @@
+server:
+  port: 8870
+spring:
+  application:
+    name: neptune-api
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  ##################    JDBC 配置    ################
+  # 数据库配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 数据库 1
+      db1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.97.96.155:3306/neptune_wechat_subscription?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: 132113.abc
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+      # 数据库 2
+      db2:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.97.96.155:3306/db_book_stack?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: 132113.abc
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+      # 视频系统
+      db3:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.97.96.155:3306/neptune_video_mg?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: 132113.abc
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+        # 视频系统
+      db4:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://47.97.96.155:3306/neptune_crawler?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: 132113.abc
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+      #打开PSCache，并且指定每个连接上PSCache的大
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 1
+      validation-query-timeout: 30000
+      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+      test-on-borrow: true
+      #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+      test-on-return: false
+      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      test-while-idle: true
+  ##################    REDIS 配置    ################
+  # 缓存配置
+  redis:
+    database: 1
+    host: 127.0.0.1
+    password: BH123!@#
+    port: 6379
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.water.neptune.**.model.po*
+  typeEnumsPackage: com.water.neptune.**.model.enums*
+
+dubbo:
+  application:
+    name: neptune-dubbo-application
+  registry:
+    address: zookeeper://118.31.33.195:2181
+  protocol:
+    name: dubbo
+    port: 20882
